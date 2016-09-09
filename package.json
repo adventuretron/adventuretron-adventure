@@ -1,0 +1,33 @@
+{
+  "name": "adventuretron-adventure",
+  "version": "0.0.1",
+  "description": "",
+  "main": "main.js",
+  "scripts": {
+    "build": "browserify renderer.js -t sheetify/transform -p [ css-extract -o bundle.css ] -o /dev/null",
+    "watch": "watchify renderer.js -t sheetify/transform -p [ css-extract -o bundle.css ] -o /dev/null",
+    "prepublish": "npm run build",
+    "start": "npm run watch & electron ."
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/sethvincent/adventuretron-adventure.git"
+  },
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/sethvincent/adventuretron-adventure/issues"
+  },
+  "homepage": "https://github.com/sethvincent/adventuretron-adventure#readme",
+  "devDependencies": {
+    "browserify": "^13.1.0",
+    "css-extract": "^1.1.2",
+    "sheetify": "^5.1.0",
+    "watchify": "^3.7.0"
+  },
+  "dependencies": {
+    "adventuretron": "0.0.4",
+    "domify": "^1.4.0",
+    "marked": "^0.3.6"
+  }
+}
