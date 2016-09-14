@@ -5,6 +5,7 @@ var css = require('sheetify')
 css('adventuretron')
 
 var app = createApp({
+  name: 'adventuretron-adventure',
   defaultLanguage: 'en',
   languages: {
     'en': 'English',

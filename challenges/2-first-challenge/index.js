@@ -2,7 +2,9 @@ var fs = require('fs')
 var path = require('path')
 var html = require('adventuretron/html')
 var markdown = require('adventuretron/markdown')
+var codeInput = require('adventuretron/code-input')
 var next = require('adventuretron/next')
+var description = require('adventuretron/description')
 
 var i18n = require('./i18n')
 
@@ -11,7 +13,6 @@ module.exports = {
   content: function (params, send) {
     var lang = params.language
     var challenge = params.challenge
-    var description = challenge.description[lang]
     var uiText = i18n[lang]
 
     var nextOptions = uiText.next
@@ -20,7 +21,7 @@ module.exports = {
     }
 
     return html`<div>
-      ${description}
+      ${description(challenge, lang)}
       ${next(nextOptions)}
     </div>`
   }
