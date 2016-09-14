@@ -85,4 +85,16 @@ input[type="button"]:focus {
     
     ._297a0ca9 main {
       height: 100%;
+    }._b597c391 {}
+    
+    ._b597c391 button {
+      border: 0px;
+      background-color: none;
+      padding: 0;
+    }._e90424fe {
+      width: 300px;
+      background-color: #fafaf8;
+      border-right: 1px solid #eee;
+      top: 0;
+      bottom: 0;
     }
