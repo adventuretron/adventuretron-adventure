@@ -6,17 +6,18 @@ In this section we'll create the project directory and files for an Adventuretro
 
 The bare minimum required for an Adventuretron workshop are these files & directories:
 
-```
-- index.html
-- main.js
-- renderer.js
-- i18n/
-  - en.json
-- challenges/
-  - example-challenge/
-    - description.md
-    - i18n.js
-    - index.js
+```bash
+adventuretron-example/
+├─ index.html
+├─ main.js
+├─ renderer.js
+├─ i18n/
+│  └─ en.json
+├─ challenges/
+    └─ example-challenge/
+        ├─ description.md
+        ├─ i18n.js
+        └─ index.js
 ```
 
 Let's go through each one in detail:
@@ -112,10 +113,11 @@ Each challenge will be a directory. The directory names will be used internally 
 
 At a minimum, a challenge must have these files:
 
-```
-- description.md
-- i18n.js 
-- index.js
+```bash
+example-challenge/
+├─ description.md
+├─ i18n.js 
+└─ index.js
 ```
 
 In the next section we'll create the first challenge.
@@ -123,6 +125,15 @@ In the next section we'll create the first challenge.
 To move on to the next section, it's your turn to create the minimum required files for a workshop.
 
 ## Instructions
+
+To complete this section of the workshop, you will:
+
+- Create directories & files
+- Run `npm init` in your workshop directory
+- Install dependencies
+- Copy code from examples
+
+### Create directories & files
 
 Use the example code above for the necessary files, and create:
 
@@ -135,4 +146,26 @@ Use the example code above for the necessary files, and create:
   - **i18n** directory
     - **en.json** file
 
-Once you've created those files and copy/pasted in the code from the above examples, test your work by clicking the **Check Workshop Directory** button below.
+### Run `npm init` in your workshop directory
+
+Create a package.json file by running `npm init` inside your workshop directory. It will ask a few questions to populate the fields of the JSON file. Answer those questions and hit enter to generate the file.
+
+### Install dependencies
+
+Install Adventureton:
+
+```
+npm install --save adventuretron
+```
+
+Install necessary development dependencies:
+
+```
+npm install --save browserify sheetify css-extract watchify
+```
+
+### Copy code from examples
+
+## Check your work
+
+Once you've followed the above instructions, test your work by selecting your directory by clicking the **Check Workshop Directory** button below.

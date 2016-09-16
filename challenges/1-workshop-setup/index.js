@@ -14,14 +14,13 @@ module.exports = {
     var challenge = params.challenge
     var uiText = i18n[lang]
 
-    var checkFilesOptions = {
-      files: ['main.js', 'renderer.js', 'index.html', 'challenges', 'i18n', 'i18n/en.json'],
-      verify: function (err, ok) {
-        if (err && !ok) {
-          send('challenges:error', { error: err })
-        } else {
-          send('challenges:success')
-        }
+    var checkFilesOptions = uiText.checkFiles
+    checkFilesOptions.files = ['main.js', 'renderer.js', 'index.html', 'challenges', 'i18n', 'i18n/en.json']
+    checkFilesOptions.verify = function verify (err, ok) {
+      if (err && !ok) {
+        send('challenges:error', { error: err })
+      } else {
+        send('challenges:success')
       }
     }
 
@@ -37,7 +36,7 @@ module.exports = {
     } else if (challenge.error) {
       return html`<div>
         ${description}
-        <h2>Something went wrong!</h2>
+        <h2>${uiText.error.headerText}</h2>
         ${checkFiles(checkFilesOptions)}
       </div>`
     } else {
@@ -46,6 +45,5 @@ module.exports = {
         ${checkFiles(checkFilesOptions)}
       </div>`
     }
-    
   }
 }
