@@ -6,7 +6,7 @@ module.exports = {
     title: 'Workshop setup',
     slug: 'workshop',
     checkFiles: {
-      buttonText: 'Check your directory'
+      buttonText: 'Check Your Workshop Directory'
     },
     error: {
       headerText: 'Something went wrong!' 

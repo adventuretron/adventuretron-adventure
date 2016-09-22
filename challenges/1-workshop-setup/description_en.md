@@ -6,7 +6,7 @@ In this section we'll create the project directory and files for an Adventuretro
 
 The bare minimum required for an Adventuretron workshop are these files & directories:
 
-```bash
+```sh
 adventuretron-example/
 ├─ index.html
 ├─ main.js
@@ -113,7 +113,7 @@ Each challenge will be a directory. The directory names will be used internally 
 
 At a minimum, a challenge must have these files:
 
-```bash
+```sh
 example-challenge/
 ├─ description.md
 ├─ i18n.js 
@@ -154,18 +154,70 @@ Create a package.json file by running `npm init` inside your workshop directory.
 
 Install Adventureton:
 
-```
+```sh
 npm install --save adventuretron
 ```
 
 Install necessary development dependencies:
 
-```
+```sh
 npm install --save browserify sheetify css-extract watchify
 ```
 
 ### Copy code from examples
 
+To start out your workshop, copy the code from the main.js, renderer.js, and index.html examples above.
+
+### Set up npm scripts
+
+You'll need `build`, `watch`, and `start` scripts in your package.json file. Here's what we use in this workshop, and you can copy them to start out:
+
+```json
+"scripts": {
+  "build": "browserify renderer.js -t sheetify/transform -p [ css-extract -o bundle.css ] -o /dev/null",
+  "watch": "watchify renderer.js -t sheetify/transform -p [ css-extract -o bundle.css ] -o /dev/null",
+  "start": "npm run build && npm run watch & electron ."
+},
+```
+
+Copy the above to your package.json file, then try running the `build` and `start` commands and watch for errors.
+
+#### `build` script
+
+Run the following:
+
+```sh
+npm run build
+```
+
+You should see output similar to this:
+
+```sh
+> adventuretron-example@0.0.1 build /path/to/your/workshop/directory/adventuretron-example
+> browserify renderer.js -t sheetify/transform -p [ css-extract -o bundle.css ] -o /dev/null
+```
+
+#### `start` script
+
+```sh
+npm run start
+```
+
+You should see output similar to the following:
+
+```sh
+> adventuretron-example@0.0.1 build /path/to/your/workshop/directory/adventuretron-example
+> npm run build && npm run watch & electron .
+
+ready
+
+> adventuretron-example@0.0.1 build /path/to/your/workshop/directory/adventuretron-example
+> browserify renderer.js -t sheetify/transform -p [ css-extract -o bundle.css ] -o /dev/null
+
+> adventuretron-example@0.0.1 build /path/to/your/workshop/directory/adventuretron-example
+> watchify renderer.js -t sheetify/transform -p [ css-extract -o bundle.css ] -o /dev/null
+```
+
 ## Check your work
 
-Once you've followed the above instructions, test your work by selecting your directory by clicking the **Check Workshop Directory** button below.
+Once you've followed the above instructions, test your work by selecting your directory by clicking the **Check Your Workshop Directory** button below.

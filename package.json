@@ -6,8 +6,7 @@
   "scripts": {
     "build": "browserify renderer.js -t sheetify/transform -p [ css-extract -o bundle.css ] -o /dev/null",
     "watch": "watchify renderer.js -t sheetify/transform -p [ css-extract -o bundle.css ] -o /dev/null",
-    "prepublish": "npm run build",
-    "start": "npm run watch & electron ."
+    "start": "npm run build && npm run watch & electron ."
   },
   "repository": {
     "type": "git",

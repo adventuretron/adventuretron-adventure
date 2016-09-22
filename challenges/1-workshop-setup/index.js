@@ -16,6 +16,7 @@ module.exports = {
 
     var checkFilesOptions = uiText.checkFiles
     checkFilesOptions.files = ['main.js', 'renderer.js', 'index.html', 'challenges', 'i18n', 'i18n/en.json']
+
     checkFilesOptions.verify = function verify (err, ok) {
       if (err && !ok) {
         send('challenges:error', { error: err })
@@ -24,7 +25,7 @@ module.exports = {
       }
     }
 
-    if (challenge.success) {
+    function success () {
       var nextOptions = uiText.next
       nextOptions.onclick = function () {
         send('challenges:next')
@@ -33,12 +34,20 @@ module.exports = {
       return html`<div>
         ${next(nextOptions)}
       </div>`
-    } else if (challenge.error) {
+    }
+
+    function error () {
       return html`<div>
         ${description}
         <h2>${uiText.error.headerText}</h2>
         ${checkFiles(checkFilesOptions)}
       </div>`
+    }
+
+    if (challenge.success) {
+      return success()
+    } else if (challenge.error) {
+      return error()
     } else {
       return html`<div>
         ${description(challenge, lang)}
