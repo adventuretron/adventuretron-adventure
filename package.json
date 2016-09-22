@@ -25,6 +25,6 @@
     "watchify": "^3.7.0"
   },
   "dependencies": {
-    "adventuretron": "0.0.9"
+    "adventuretron": "0.0.10"
   }
 }
