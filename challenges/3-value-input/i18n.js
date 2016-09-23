@@ -1,7 +1,7 @@
 module.exports = {
   en: {
-    title: 'Text input',
-    slug: 'text-input',
+    title: 'Value input',
+    slug: 'value-input',
     error: {
       headerText: 'Something went wrong!' 
     },

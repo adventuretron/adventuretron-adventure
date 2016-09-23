@@ -12,7 +12,7 @@
     "type": "git",
     "url": "git+https://github.com/sethvincent/adventuretron-adventure.git"
   },
-  "author": "",
+  "author": "sethvincent",
   "license": "ISC",
   "bugs": {
     "url": "https://github.com/sethvincent/adventuretron-adventure/issues"

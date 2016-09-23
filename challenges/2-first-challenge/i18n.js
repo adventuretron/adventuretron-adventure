@@ -10,7 +10,7 @@ module.exports = {
     },
     next: {
       headerText: 'Next challenge: text input',
-      descriptionText: 'Learn about checking text values in the next challenge',
+      descriptionText: 'Learn about verifying values in the next challenge',
       buttonText: 'Next!'
     }
   }

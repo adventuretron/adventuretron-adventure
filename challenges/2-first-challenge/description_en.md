@@ -1,5 +1,10 @@
 # Your First Challenge
 
+In this section, you'll create the first challenge of your workshop. It will use two adventuretron modules: `description` & `next`.
+
+The `description` module grabs the challenge description in the correct language for the user and turns it into DOM nodes for the workshop renderer.
+
+The `next` module creates a button for moving to the next challenge. 
 
 ## Required files
 
