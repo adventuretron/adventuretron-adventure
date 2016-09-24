@@ -1,7 +1,7 @@
 var html = require('adventuretron/html')
 var next = require('adventuretron/next')
 var description = require('adventuretron/description')
-var checkFiles = require('adventuretron/check-files')
+var verifyDir = require('adventuretron/verify-directory')
 var i18n = require('./i18n')
 
 module.exports = {
@@ -16,10 +16,10 @@ module.exports = {
       send('challenges:next')
     }
   
-    var checkFilesOptions = uiText.checkFiles
-    checkFilesOptions.files = ['description.md', 'index.js', 'i18n.js']
+    var verifyDirOptions = uiText.verifyDir
+    verifyDirOptions.files = ['description.md', 'index.js', 'i18n.js']
 
-    checkFilesOptions.verify = function verify (err, ok) {
+    verifyDirOptions.verify = function verify (err, ok) {
       if (err && !ok) {
         send('challenges:error', { error: err })
       } else {
@@ -35,9 +35,9 @@ module.exports = {
 
     function error () {
       return html`<div>
-        ${description}
+        ${description(challenge, lang)}
         <h2>${uiText.error.headerText}</h2>
-        ${checkFiles(checkFilesOptions)}
+        ${verifyDir(verifyDirOptions)}
       </div>`
     }
 
@@ -48,7 +48,7 @@ module.exports = {
     } else {
       return html`<div>
         ${description(challenge, lang)}
-        ${checkFiles(checkFilesOptions)}
+        ${verifyDir(verifyDirOptions)}
       </div>`
     }
   }

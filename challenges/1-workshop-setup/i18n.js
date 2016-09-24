@@ -5,7 +5,7 @@ module.exports = {
   en: {
     title: 'Workshop setup',
     slug: 'workshop',
-    checkFiles: {
+    verifyDir: {
       buttonText: 'Check Your Workshop Directory'
     },
     error: {
