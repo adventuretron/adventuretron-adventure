@@ -10,14 +10,14 @@
   },
   "repository": {
     "type": "git",
-    "url": "git+https://github.com/sethvincent/adventuretron-adventure.git"
+    "url": "git+https://github.com/adventuretron/adventuretron-adventure.git"
   },
   "author": "sethvincent",
   "license": "ISC",
   "bugs": {
-    "url": "https://github.com/sethvincent/adventuretron-adventure/issues"
+    "url": "https://github.com/adventuretron/adventuretron-adventure/issues"
   },
-  "homepage": "https://github.com/sethvincent/adventuretron-adventure#readme",
+  "homepage": "https://github.com/adventuretron/adventuretron-adventure#readme",
   "devDependencies": {
     "browserify": "^13.1.0",
     "css-extract": "^1.1.2",
@@ -25,6 +25,6 @@
     "watchify": "^3.7.0"
   },
   "dependencies": {
-    "adventuretron": "0.0.11"
+    "adventuretron": "0.0.12"
   }
 }
