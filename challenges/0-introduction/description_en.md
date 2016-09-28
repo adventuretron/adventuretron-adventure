@@ -2,18 +2,28 @@
 
 Adventuretron is a tool for creating self-guided workshops that run as desktop apps on MacOS, Windows, & Linux.
 
-In this first section of the workshop we'll go over some background info about Adventuretron. Next we'll take a look at the basics of creating an Adventuretron workshop.
+In this first section of the workshop we'll go over some background info about [Adventuretron](https://adventuretron.org). Next we'll take a look at the basics of creating an Adventuretron workshop.
 
 ## Work in progress
 
 We're still early in the development of Adventuretron. There are weird APIs and messy rough edges. That's why we're making this workshop: with the hope that you'll try this out, and let us know what makes sense, what was easy, what was challenging, and what was ridiculously wrong.
 
-## Overview
-
 ### Features
-- i18n support
-- cross-platform desktop apps
-- make workshops for any topic, not just code
+
+- basic i18n support.
+- value, code, & file input challenges
+- navigation & verification of challenges
+
+## Get involved
+
+- [adventuretron.org](https://adventuretron.org)
+- [documentation](https://docs.adventuretron.org)
+- [github org](https://github.com/adventuretron)
+- [chat](https://gitter.im/adventuretron/discuss)
+
+## Code of conduct
+
+All participants in the production of Adventuretron projects are expected to follow the [code of conduct](CONDUCT.md).
 
 ### Why create Adventuretron?
 
