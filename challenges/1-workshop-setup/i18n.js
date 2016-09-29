@@ -4,7 +4,6 @@ var md = require('adventuretron/markdown')
 module.exports = {
   en: {
     title: 'Workshop setup',
-    slug: 'workshop',
     verifyDir: {
       buttonText: 'Check Your Workshop Directory'
     },

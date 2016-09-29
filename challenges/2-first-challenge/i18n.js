@@ -1,7 +1,6 @@
 module.exports = {
   en: {
     title: 'Your First Challenge',
-    slug: 'first-challenge',
     verifyDir: {
       buttonText: 'Check Your Challenge Directory'
     },

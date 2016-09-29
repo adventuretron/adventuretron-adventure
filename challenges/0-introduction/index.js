@@ -16,6 +16,7 @@ module.exports = {
 
     var nextOptions = uiText.next
     nextOptions.onclick = function () {
+      send('challenges:success')
       send('challenges:next')
     }
 
