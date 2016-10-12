@@ -8,6 +8,9 @@ module.exports = {
       headerText: 'Next challenge: text input',
       descriptionText: 'Learn about verifying text in the next challenge',
       buttonText: 'Next!'
+    },
+    verifyChallenge: {
+      buttonText: 'Check Your Challenge Directory'
     }
   }
 }
