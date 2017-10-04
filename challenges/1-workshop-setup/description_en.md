@@ -150,7 +150,24 @@ To complete this section of the workshop, you will:
 
 ### Run `adventuretron new` in your workshop directory
 
-Create a package.json file by running `npm init` inside your workshop directory. It will ask a few questions to populate the fields of the JSON file. Answer those questions and hit enter to generate the file.
+First, install the Adventuretron command-line tool:
+
+```
+npm i -g adventuretron
+```
+
+Next create a new directory and move into it:
+
+```
+mkdir adventure
+cd adventure
+```
+
+Now create your new Adventuretron workshop:
+
+```
+adventuretron new
+```
 
 ### Review code from examples
 

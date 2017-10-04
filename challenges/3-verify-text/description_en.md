@@ -16,6 +16,7 @@ The index.js file will look very similar to the last one, except for these diffe
 Here's how the index.js file will look:
 
 ```js
+
 var html = require('adventuretron/html')
 var next = require('adventuretron/next')
 var description = require('adventuretron/description')
@@ -34,7 +35,7 @@ module.exports = {
     nextOptions.onclick = function () {
       send('challenges:next')
     }
-  
+
     var inputOptions = uiText.verifyText
     inputOptions.verify = function verify (answer) {
       if (answer === 'cool') {
@@ -54,7 +55,7 @@ module.exports = {
       return html`<div>
         ${description(challenge, lang)}
         <h2>${uiText.error.headerText}</h2>
-        verifyText(inputOptions)
+        ${verifyText(inputOptions)}
       </div>`
     }
 
@@ -65,7 +66,7 @@ module.exports = {
     } else {
       return html`<div>
         ${description(challenge, lang)}
-        verifyText(inputOptions)
+        ${verifyText(inputOptions)}
       </div>`
     }
   }

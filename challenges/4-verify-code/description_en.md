@@ -21,6 +21,7 @@ var html = require('adventuretron/html')
 var next = require('adventuretron/next')
 var description = require('adventuretron/description')
 var verifyCode = require('adventuretron/verify-code')
+
 var i18n = require('./i18n')
 
 module.exports = {
@@ -29,23 +30,28 @@ module.exports = {
     var lang = params.language
     var challenge = params.challenge
     var uiText = i18n[lang]
+    var inputCode = ''
 
     var nextOptions = uiText.next
     nextOptions.onclick = function () {
       send('challenges:next')
     }
-  
+
     var inputOptions = uiText.verifyCode
-    inputOptions.verify = function verify (answer) {
+    inputOptions.hideOutput = true
+    inputOptions.value = inputCode
+
+    inputOptions.verify = function verify (code) {
+      inputCode = code
+
       try {
         var answerFunction = new Function('return ' + code)()
         var answer = answerFunction()
       } catch (err) {
-        // show the error message
         send('challenges:error', err)
       }
 
-      if (answer && answer === 'cool') {
+      if (answer && answer === 'hello') {
         send('challenges:success', answer)
       } else {
         send('challenges:error', answer)

@@ -33,7 +33,9 @@ Electron can help with this. [git-it-electron](https://github.com/jlord/git-it-e
 
 ### What are you using to build this?
 
-The main dependencies of Adventuretron are [electron](http://electron.atom.io/) & [choo](https://github.com/yoshuawuyts/choo).
+The main dependencies of Adventuretron are [node.js](http://nodejs.org), [electron](http://electron.atom.io/), & [bel](https://github.com/shama/bel).
+
+As you progress with learning about Adventuretron, you'll also want to learn more about those projects.
 
 ## What's next?
 

@@ -6,7 +6,7 @@ module.exports = {
     },
     next: {
       headerText: 'Hola! You did it!',
-      descriptionText: 'You wrote the function correctly!',
+      descriptionText: 'You wrote the function correctly, it returned `hello`!',
       buttonText: 'Next!'
     },
     verifyCode: {

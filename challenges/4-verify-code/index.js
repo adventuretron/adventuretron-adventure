@@ -17,6 +17,17 @@ module.exports = {
       send('challenges:next')
     }
   
+    var verifyDirOptions = uiText.verifyCode
+    verifyDirOptions.files = ['description_en.md', 'index.js', 'i18n.js']
+
+    verifyDirOptions.verify = function verify (err, ok) {
+      if (err && !ok) {
+        send('challenges:error', err)
+      } else {
+        send('challenges:success')
+      }
+    }
+  
     function success () {
       return html`<div>
         ${next(nextOptions)}
@@ -25,9 +36,12 @@ module.exports = {
 
     function error () {
       return html`<div>
-        ${description}
         <h2>${uiText.error.headerText}</h2>
-        // verify challenge
+        <p>${challenge.error.message}</p>
+        ${description(challenge, lang)}
+        <h2>${uiText.error.headerText}</h2>
+        <p>${challenge.error.message}</p>
+        ${verifyDir(verifyDirOptions)}
       </div>`
     }
 
@@ -38,7 +52,7 @@ module.exports = {
     } else {
       return html`<div>
         ${description(challenge, lang)}
-        // verify challenge
+        ${verifyDir(verifyDirOptions)}
       </div>`
     }
   }
