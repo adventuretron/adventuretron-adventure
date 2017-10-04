@@ -5,7 +5,7 @@ Learn how to build adventuretron workshops with an adventuretron workshop!
 ## Install 
 ### Mac
 
-Download the [adventuretron-adventure-win32-ia32.zip](https://github.com/adventuretron/adventuretron-adventure/releases/latest) file, unzip it, and run the adventuretron-adventure exe.
+Download the [adventuretron-adventure-win32-ia32.zip](https://github.com/adventuretron/adventuretron-adventure/releases/latest) file, unzip it, and run the adventuretron-adventure app.
 
 ### Windows
 
