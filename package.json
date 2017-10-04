@@ -10,8 +10,9 @@
     "build": "csskit bundle style.css -o bundle.css",
     "watch": "csskit watch style.css -o bundle.css",
     "start": "npm run build && electron .",
-    "clean": "rm -rf dist/*",
-    "mac": "npm run clean && electron-packager . adventuretron-adventure --out=dist/osx --platform=darwin --arch=x64 --app-version=\"1.0.0\" "
+    "clean": "rimraf dist/*",
+    "mac": "npm run clean && electron-packager . adventuretron-adventure --out=dist/osx --platform=darwin --arch=x64 --app-version=\"1.0.0\" ",
+    "win": "npm run clean && electron-packager . adventuretron-adventure --out=dist/win --platform=win32 --arch=ia32 --app-version=\"1.0.0\" "
   },
   "repository": {
     "type": "git",
