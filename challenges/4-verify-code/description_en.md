@@ -42,6 +42,7 @@ module.exports = {
         var answer = answerFunction()
       } catch (err) {
         // show the error message
+        send('challenges:error', err)
       }
 
       if (answer && answer === 'cool') {
@@ -61,7 +62,7 @@ module.exports = {
       return html`<div>
         ${description(challenge, lang)}
         <h2>${uiText.error.headerText}</h2>
-        verifyText(inputOptions)
+        ${verifyCode(inputOptions)}
       </div>`
     }
 
@@ -72,16 +73,14 @@ module.exports = {
     } else {
       return html`<div>
         ${description(challenge, lang)}
-        verifyText(inputOptions)
+        ${verifyCode(inputOptions)}
       </div>`
     }
   }
 }
 ```
 
-You'll probably note that most of the above code is identical to the code of the last challenge.
-
-This is due to most of the content being extracted out into the `description.md` and `i18n.js` files.
+You'll probably notice that most of the above code is identical to the code of the last challenge.
 
 Some of the repetition and boilerplate is unavoidable, but in future versions of Adventuretron we hope to reduce this.
 
@@ -92,17 +91,17 @@ The content of this challenge's `i18n.js` file is also very similar:
 ```js
 module.exports = {
   en: {
-    title: 'Verify text example',
+    title: 'Verify code example',
     error: {
       headerText: 'Something went wrong!' 
     },
     next: {
-      headerText: 'Next challenge: text input',
-      descriptionText: 'Learn about verifying code in the next challenge',
+      headerText: 'Hola! You did it!',
+      descriptionText: 'You wrote the function correctly!',
       buttonText: 'Next!'
     },
     verifyCode: {
-      headerText: 'Write that returns the string "cool"',
+      headerText: 'Write a function that returns the string "hello"',
       descriptionText: 'Use the above editor to write your function',
       buttonText: 'Check your answer'
     }
@@ -117,9 +116,9 @@ The description.md file can contain any text formatted with markdown that will h
 Here's an example:
 
 ```md
-# Create a function that returns the string `cool`
+# Create a function that returns the string `hello`
 
-Using the editor below, write a function that returns the word `cool`.
+Using the editor below, write a function that returns the word `hello`.
 ```
 
 ## Put it all together

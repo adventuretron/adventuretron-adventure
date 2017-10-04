@@ -20,6 +20,7 @@ var html = require('adventuretron/html')
 var next = require('adventuretron/next')
 var description = require('adventuretron/description')
 var verifyText = require('adventuretron/verify-text')
+
 var i18n = require('./i18n')
 
 module.exports = {
@@ -80,12 +81,13 @@ var html = require('adventuretron/html')
 var next = require('adventuretron/next')
 var description = require('adventuretron/description')
 var verifyText = require('adventuretron/verify-text')
+
 var i18n = require('./i18n')
 ```
 
 The above modules are the minimum required for creating a challenge that verifies a string of text.
 
-The `html` module, a wrapper around [yo-yo](https://github.com/maxogden/yo-yo), creates the HTML that is rendered in the app.
+The `html` module, which is actually the dependency [bel](https://github.com/shama/bel), creates the HTML that is rendered in the app.
 
 The `next` module is responsible for creating a button that users click to move on to the next challenge.
 
@@ -93,7 +95,7 @@ The `description` module renders the challenge's description in the current lang
 
 The `verifyText` module creates the input form and helps with the validation of the text.
 
-The `i18n` module is the localization object for this challenge. Note that it is requiring the local `i18n.js` file.
+The `i18n` module is the localization object for this challenge. Note that it is requiring the local `i18n.js` file in the same directory.
 
 ## The setup
 
@@ -184,7 +186,7 @@ function error () {
 
 ## returning appropriate html
 
-Finally, using an `if/else if/else` statement we put together the `success` and `error` functions and the default html output when a challenge is first loaded.
+Finally, using an `if/else` statement we put together the `success` and `error` functions and the default html output when a challenge is first loaded.
 
 The default HTML output is similar to that of the `error` function, except it is only the `description` and `verifyText` output.
 

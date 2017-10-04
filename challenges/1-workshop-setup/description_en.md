@@ -2,6 +2,8 @@
 
 In this section we'll create the project directory and files for an Adventuretron workshop.
 
+We'll create the files automatically using the Adventuretron command-line tool, but first let's take a look at the files to see what they are and what they are for.
+
 ## What files & directories?
 
 The bare minimum required for an Adventuretron workshop are these files & directories:
@@ -11,6 +13,7 @@ adventuretron-example/
 ├─ index.html
 ├─ main.js
 ├─ renderer.js
+├─ style.css
 ├─ i18n/
 │  └─ en.json
 ├─ challenges/
@@ -64,14 +67,13 @@ The renderer.js file is what controls the UI of your workshop. This is the entry
 
 [Learn more about electron's renderer process.](http://jlord.us/essential-electron/#main-process)
 
-In this file ou'll need the `adventuretron/renderer` module, and you can use whatever css methods your prefer. We recommend & like to use [sheetify](https://github.com/stackcss/sheetify) and you can see basic usage of that in the example below:
+In this file you'll need the `adventuretron/renderer` module, and you can use whatever css methods your prefer. We recommend & use to use [csskit](https://github.com/csskit/csskit) and you can see basic usage of that in the `style.css` section.
+
+Here's what the renderer.js file looks like by default:
 
 ```js
 var path = require('path')
 var createApp = require('adventuretron/renderer')
-var css = require('sheetify')
-
-css('adventuretron')
 
 var app = createApp({
   defaultLanguage: 'en',
@@ -87,6 +89,20 @@ app.start()
 ```
 
 It's important to provide the paths to the i18n and challenge directories, as well as the languages for the localization that your workshop provides.
+
+## style.css
+
+The main css file for your workshop.
+
+To get the base Adventuretron styles you'll import them like so:
+
+```
+@import "adventuretron";
+```
+
+And use a css bundler like [csskit](https://npmjs.com/csskit) to bundle the css dependencies.
+
+You can add any custom styles to this file that you want.
 
 ## i18n directory
 
@@ -128,59 +144,29 @@ To move on to the next section, it's your turn to create the minimum required fi
 
 To complete this section of the workshop, you will:
 
-- Create directories & files
-- Run `npm init` in your workshop directory
+- Create directories & files using `adventuretron new`
 - Install dependencies
-- Copy code from examples
+- Review code from examples
 
-### Create directories & files
-
-Use the example code above for the necessary files, and create:
-
-- Your workshop directory
-- Inside the workshop directory, create:
-  - **main.js** file
-  - **renderer.js** file
-  - **index.html** file
-  - **challenges** directory
-  - **i18n** directory
-    - **en.json** file
-
-### Run `npm init` in your workshop directory
+### Run `adventuretron new` in your workshop directory
 
 Create a package.json file by running `npm init` inside your workshop directory. It will ask a few questions to populate the fields of the JSON file. Answer those questions and hit enter to generate the file.
 
-### Install dependencies
+### Review code from examples
 
-Install Adventureton:
+Take a look through the example code created after running `adventuretron new`. It should look like the examples above.
 
-```sh
-npm install --save adventuretron
-```
+### Review npm scripts
 
-Install necessary development dependencies:
-
-```sh
-npm install --save browserify sheetify css-extract watchify
-```
-
-### Copy code from examples
-
-To start out your workshop, copy the code from the main.js, renderer.js, and index.html examples above.
-
-### Set up npm scripts
-
-You'll need `build`, `watch`, and `start` scripts in your package.json file. Here's what we use in this workshop, and you can copy them to start out:
+The `adventuretron new` command adds `build`, `watch`, and `start` scripts to your package.json file. Here they are so you know what to expect:
 
 ```json
 "scripts": {
-  "build": "browserify renderer.js -t sheetify/transform -p [ css-extract -o bundle.css ] -o /dev/null",
-  "watch": "watchify renderer.js -t sheetify/transform -p [ css-extract -o bundle.css ] -o /dev/null",
-  "start": "npm run build && npm run watch & electron ."
+  "build": "csskit bundle style.css -o bundle.css",
+  "watch": "csskit watch style.css -o bundle.css",
+  "start": "npm run build && electron ."
 },
 ```
-
-Copy the above to your package.json file, then try running the `build` and `start` commands and watch for errors.
 
 #### `build` script
 
@@ -194,7 +180,22 @@ You should see output similar to this:
 
 ```sh
 > adventuretron-example@0.0.1 build /path/to/your/workshop/directory/adventuretron-example
-> browserify renderer.js -t sheetify/transform -p [ css-extract -o bundle.css ] -o /dev/null
+> csskit bundle style.css -o bundle.css
+```
+
+#### `watch` script
+
+Run the following:
+
+```sh
+npm run watch
+```
+
+You should see output similar to this:
+
+```sh
+> adventuretron-example@0.0.1 build /path/to/your/workshop/directory/adventuretron-example
+> csskit watch style.css -o bundle.css
 ```
 
 #### `start` script
@@ -206,18 +207,13 @@ npm run start
 You should see output similar to the following:
 
 ```sh
-> adventuretron-example@0.0.1 build /path/to/your/workshop/directory/adventuretron-example
-> npm run build && npm run watch & electron .
+> adventure@1.0.0 start /Users/sdv/workspace/adventuretron/tmp/adventure
+> npm run build && electron .
 
-ready
-
-> adventuretron-example@0.0.1 build /path/to/your/workshop/directory/adventuretron-example
-> browserify renderer.js -t sheetify/transform -p [ css-extract -o bundle.css ] -o /dev/null
-
-> adventuretron-example@0.0.1 build /path/to/your/workshop/directory/adventuretron-example
-> watchify renderer.js -t sheetify/transform -p [ css-extract -o bundle.css ] -o /dev/null
+> adventure@1.0.0 build /Users/sdv/workspace/adventuretron/tmp/adventure
+> csskit bundle style.css -o bundle.css
 ```
 
 ## Check your work
 
-Once you've followed the above instructions, test your work by selecting your directory by clicking the **Check Your Workshop Directory** button below.
+Once you've followed the above instructions, test your work by clicking the **Check Your Workshop Directory** button below and selecting your directory.

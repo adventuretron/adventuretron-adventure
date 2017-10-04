@@ -1,7 +1,7 @@
 var html = require('adventuretron/html')
 var next = require('adventuretron/next')
 var description = require('adventuretron/description')
-var readChallenge = require('../../lib/verify-challenge')
+var readChallenge = require('../../lib/read-challenge-files')
 var i18n = require('./i18n')
 
 module.exports = {
@@ -15,12 +15,12 @@ module.exports = {
     nextOptions.onclick = function () {
       send('challenges:next')
     }
-  
+
     var verifyOptions = uiText.verifyChallenge
 
     verifyOptions.verify = function verify (err, ok) {
       if (err && !ok) {
-        send('challenges:error', { error: err })
+        send('challenges:error', err)
       } else {
         send('challenges:success')
       }
@@ -34,15 +34,15 @@ module.exports = {
 
     function error () {
       return html`<div>
-        ${description}
+        ${description(challenge, lang)}
         <h2>${uiText.error.headerText}</h2>
-        // verify challenge
+        ${verifyChallenge(verifyOptions)}
       </div>`
     }
 
     if (challenge.success) {
       return success()
-    } else if (challenge.error) {
+    } else if (challenge.error && challenge.error.message) {
       return error()
     } else {
       return html`<div>
@@ -63,14 +63,7 @@ function verifyChallenge (options) {
   var headerText = options.headerText
   var buttonText = options.buttonText
   var descriptionText = options.descriptionText
-
-  var prefix = css`
-    :host {}
-
-    .dir-finder {
-      visibility: hidden;
-    }
-  `
+  var verify = options.verify
 
   var dirFinder = html`<input class="dir-finder" type="file" webkitdirectory onchange=${onchange} />`
 
@@ -82,11 +75,12 @@ function verifyChallenge (options) {
     e.preventDefault()
     var dir = e.target.files[0].path
     readChallenge(dir, function (err, files) {
-      console.log(err)
+      if (err) return verify(err)
+      return verify(null, true, files)
     })
   }
 
-  return html`<div class="${prefix} challenge-check-files-input">
+  return html`<div class="challenge-check-files-input">
     ${headerText ? html`<h2>${headerText}</h2>` : ''}
     ${descriptionText ? html`<p>${descriptionText}</p>` : ''}
     <button onclick=${onclick}>${buttonText}</button>

@@ -5,11 +5,11 @@ module.exports = {
       buttonText: 'Check Your Challenge Directory'
     },
     error: {
-      headerText: 'Something went wrong!' 
+      headerText: 'Something is not quite right!'
     },
     next: {
-      headerText: 'Next challenge: text input',
-      descriptionText: 'Learn about verifying values in the next challenge',
+      headerText: 'Wooo! Great! Next challenge: verifying text',
+      descriptionText: 'Learn about verifying text in the next challenge',
       buttonText: 'Next!'
     }
   }

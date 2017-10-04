@@ -15,8 +15,9 @@ module.exports = {
     verifyDirOptions.files = ['main.js', 'renderer.js', 'index.html', 'challenges', 'i18n', 'i18n/en.json']
 
     verifyDirOptions.verify = function verify (err, ok) {
+      console.log('err', err)
       if (err && !ok) {
-        send('challenges:error', { error: err })
+        send('challenges:error', err)
       } else {
         send('challenges:success')
       }
@@ -35,15 +36,18 @@ module.exports = {
 
     function error () {
       return html`<div>
-        ${description}
         <h2>${uiText.error.headerText}</h2>
+        <p>${challenge.error.message}</p>
+        ${description(challenge, lang)}
         ${verifyDir(verifyDirOptions)}
+        <h2>${uiText.error.headerText}</h2>
+        <p>${challenge.error.message}</p>
       </div>`
     }
 
     if (challenge.success) {
       return success()
-    } else if (challenge.error) {
+    } else if (challenge.error && challenge.error.message) {
       return error()
     } else {
       return html`<div>

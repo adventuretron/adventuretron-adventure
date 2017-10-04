@@ -33,7 +33,7 @@ module.exports = {
 
     if (challenge.success) {
       return success()
-    } else if (challenge.error) {
+    } else if (challenge.error && challenge.error.message) {
       return error()
     } else {
       return html`<div>

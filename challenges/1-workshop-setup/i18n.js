@@ -8,7 +8,7 @@ module.exports = {
       buttonText: 'Check Your Workshop Directory'
     },
     error: {
-      headerText: 'Something went wrong!' 
+      headerText: 'Something is not quite right!'
     },
     next: {
       headerText: 'Your workshop directory is looking good!',

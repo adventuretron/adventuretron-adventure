@@ -2,11 +2,11 @@ module.exports = {
   en: {
     title: 'Verify text',
     error: {
-      headerText: 'Something went wrong!' 
+      headerText: 'Something is not quite right!'
     },
     next: {
-      headerText: 'Next challenge: text input',
-      descriptionText: 'Learn about verifying text in the next challenge',
+      headerText: 'Got it! Next challenge: verifying code',
+      descriptionText: 'Good job on making that verifying text challenge. Learn about verifying code in the next challenge',
       buttonText: 'Next!'
     },
     verifyChallenge: {

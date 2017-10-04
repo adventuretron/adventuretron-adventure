@@ -1,10 +1,7 @@
 var path = require('path')
-var createApp = require('adventuretron/renderer')
-var css = require('sheetify')
+var adventuretron = require('adventuretron/renderer')
 
-css('adventuretron')
-
-var app = createApp({
+var app = adventuretron({
   name: 'adventuretron-adventure',
   defaultLanguage: 'en',
   languages: {
